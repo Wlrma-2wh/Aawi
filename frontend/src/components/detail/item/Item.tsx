@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ItemContainer } from "./itemStyle";
 
-const Item = ({ item }: any) => {
+const Item = ({ item, choose, clickChoose, index }: any) => {
   const [max, setMax] = useState(0);
   const [min, setMin] = useState(0);
 
@@ -17,18 +17,21 @@ const Item = ({ item }: any) => {
   return (
     <ItemContainer
       color={item.graph[item.graph.length - 1].y >= 0 ? "blue" : "red"}
+      onClick={() => clickChoose(index)}
     >
-      <div className="title">{item.title}</div>
-      <div className="graph">
-        <svg>
-          <polyline
-            points={item.graph.map((v: any, index: number) => {
-              return `${index * 6},${14 - (14 / (max / v.y) - 14 / min)} `;
-            })}
-          ></polyline>
-        </svg>
+      <div className={choose === index ? "click" : "not"}>
+        <div className="title">{item.title}</div>
+        <div className="graph">
+          <svg>
+            <polyline
+              points={item.graph.map((v: any, index: number) => {
+                return `${index * 6},${14 - (14 / (max / v.y) - 14 / min)} `;
+              })}
+            ></polyline>
+          </svg>
+        </div>
+        <div className="number">{item.num}</div>
       </div>
-      <div className="number">{item.num}</div>
     </ItemContainer>
   );
 };

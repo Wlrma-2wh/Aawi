@@ -1,22 +1,38 @@
 import styled from "styled-components";
 
 export const ItemContainer = styled.div`
-  width: 500px;
-  height: 102px;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 3px;
-  padding-right: 70px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 4px;
-  position: relative;
-  color: ${(props) => props.color};
-  cursor: pointer;
-
-  &:hover {
-    background: rgba(251, 229, 255, 0.3);
+  [class="click"] {
+    background: #fbe5ff;
+    width: 500px;
+    height: 102px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding-right: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 4px;
+    position: relative;
+    color: ${(props) => props.color};
+    cursor: pointer;
+  }
+  [class="not"] {
+    background: #ffffff;
+    width: 500px;
+    height: 102px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding-right: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 4px;
+    position: relative;
+    color: ${(props) => props.color};
+    cursor: pointer;
+    &:hover {
+      background: rgba(251, 229, 255, 0.3);
+    }
   }
 
   .title {

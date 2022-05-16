@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Information from "./information/Information";
 import Item from "./item/Item";
 
@@ -108,11 +108,25 @@ const dumy = [
 ];
 
 const index = () => {
+  const [choose, setChoose] = useState<number>(-1);
+
+  const clickChoose = useCallback(
+    (index: number) => {
+      setChoose(index);
+    },
+    [choose]
+  );
+
   return (
     <>
       <div>
-        {dumy.map((v) => (
-          <Item item={v} />
+        {dumy.map((v, index: number) => (
+          <Item
+            item={v}
+            choose={choose}
+            clickChoose={clickChoose}
+            index={index}
+          />
         ))}
       </div>
       <div>
